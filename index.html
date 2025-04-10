@@ -12,7 +12,7 @@
     h1 {
       text-align: center;
     }
-    .buttons {
+    .przyciski {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
@@ -45,37 +45,37 @@
 <body>
 
   <h1>Najpopularniejsze potrawy w Niemczech</h1>
-  <div class="buttons" id="buttonsContainer"></div>
-  <div class="info" id="foodInfo"></div>
+  <div class="przyciski" id="kontenerPrzyciskow"></div>
+  <div class="info" id="infoPotrawy"></div>
 
   <script>
-    const dishes = [
-      { name: "Bratwurst", desc: "Smażona kiełbasa, często z musztardą.", img: "obrazek1.jpg" },
-      { name: "Sauerbraten", desc: "Pieczeń wołowa marynowana w occie.", img: "obrazek2.jpg" },
-      { name: "Schnitzel", desc: "Panierowany kotlet, zwykle wieprzowy.", img: "obrazek3.jpg" },
-      { name: "Currywurst", desc: "Kiełbasa z ketchupem curry.", img: "obrazek4.jpg" },
-      { name: "Kartoffelsalat", desc: "Sałatka ziemniaczana na zimno.", img: "obrazek5.jpg" },
-      { name: "Pretzel", desc: "Słona bułka w kształcie węzła.", img: "obrazek6.jpg" },
-      { name: "Spätzle", desc: "Miękki makaron jajeczny.", img: "obrazek7.jpg" },
-      { name: "Maultaschen", desc: "Niemieckie pierogi z mięsem i szpinakiem.", img: "obrazek8.jpg" },
-      { name: "Rouladen", desc: "Wołowe zawijańce z boczkiem i ogórkiem.", img: "obrazek9.jpg" },
-      { name: "Eisbein", desc: "Gotowana lub pieczona golonka.", img: "obrazek10.jpg" }
+    const potrawy = [
+      { nazwa: "Bratwurst", opis: "Smażona kiełbasa, często z musztardą.", obrazek: "obrazek1.jpg" },
+      { nazwa: "Sauerbraten", opis: "Pieczeń wołowa marynowana w occie.", obrazek: "obrazek2.jpg" },
+      { nazwa: "Schnitzel", opis: "Panierowany kotlet, zwykle wieprzowy.", obrazek: "obrazek3.jpg" },
+      { nazwa: "Currywurst", opis: "Kiełbasa z ketchupem curry.", obrazek: "obrazek4.jpg" },
+      { nazwa: "Kartoffelsalat", opis: "Sałatka ziemniaczana na zimno.", obrazek: "obrazek5.jpg" },
+      { nazwa: "Pretzel", opis: "Słona bułka w kształcie węzła.", obrazek: "obrazek6.jpg" },
+      { nazwa: "Spätzle", opis: "Miękki makaron jajeczny.", obrazek: "obrazek7.jpg" },
+      { nazwa: "Maultaschen", opis: "Niemieckie pierogi z mięsem i szpinakiem.", obrazek: "obrazek8.jpg" },
+      { nazwa: "Rouladen", opis: "Wołowe zawijańce z boczkiem i ogórkiem.", obrazek: "obrazek9.jpg" },
+      { nazwa: "Eisbein", opis: "Gotowana lub pieczona golonka.", obrazek: "obrazek10.jpg" }
     ];
 
-    const buttonsContainer = document.getElementById("buttonsContainer");
-    const foodInfo = document.getElementById("foodInfo");
+    const kontenerPrzyciskow = document.getElementById("kontenerPrzyciskow");
+    const infoPotrawy = document.getElementById("infoPotrawy");
 
-    dishes.forEach(dish => {
-      const btn = document.createElement("button");
-      btn.innerText = dish.name;
-      btn.onclick = () => {
-        foodInfo.innerHTML = `
-          <h2>${dish.name}</h2>
-          <p>${dish.desc}</p>
-          <img src="${dish.img}" alt="${dish.name}">
+    potrawy.forEach(potrawa => {
+      const przycisk = document.createElement("button");
+      przycisk.innerText = potrawa.nazwa;
+      przycisk.onclick = () => {
+        infoPotrawy.innerHTML = `
+          <h2>${potrawa.nazwa}</h2>
+          <p>${potrawa.opis}</p>
+          <img src="${potrawa.obrazek}" alt="${potrawa.nazwa}">
         `;
       };
-      buttonsContainer.appendChild(btn);
+      kontenerPrzyciskow.appendChild(przycisk);
     });
   </script>
 
