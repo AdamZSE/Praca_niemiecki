@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Jedzenie w Niemczech</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      text-align: center;
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #007BFF;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .info {
+      text-align: center;
+    }
+    .info img {
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Najpopularniejsze potrawy w Niemczech</h1>
+  <div class="buttons" id="buttonsContainer"></div>
+  <div class="info" id="foodInfo"></div>
+
+  <script>
+    const dishes = [
+      { name: "Bratwurst", desc: "Smażona kiełbasa, często z musztardą.", img: "obrazek1.jpg" },
+      { name: "Sauerbraten", desc: "Pieczeń wołowa marynowana w occie.", img: "obrazek2.jpg" },
+      { name: "Schnitzel", desc: "Panierowany kotlet, zwykle wieprzowy.", img: "obrazek3.jpg" },
+      { name: "Currywurst", desc: "Kiełbasa z ketchupem curry.", img: "obrazek4.jpg" },
+      { name: "Kartoffelsalat", desc: "Sałatka ziemniaczana na zimno.", img: "obrazek5.jpg" },
+      { name: "Pretzel", desc: "Słona bułka w kształcie węzła.", img: "obrazek6.jpg" },
+      { name: "Spätzle", desc: "Miękki makaron jajeczny.", img: "obrazek7.jpg" },
+      { name: "Maultaschen", desc: "Niemieckie pierogi z mięsem i szpinakiem.", img: "obrazek8.jpg" },
+      { name: "Rouladen", desc: "Wołowe zawijańce z boczkiem i ogórkiem.", img: "obrazek9.jpg" },
+      { name: "Eisbein", desc: "Gotowana lub pieczona golonka.", img: "obrazek10.jpg" }
+    ];
+
+    const buttonsContainer = document.getElementById("buttonsContainer");
+    const foodInfo = document.getElementById("foodInfo");
+
+    dishes.forEach(dish => {
+      const btn = document.createElement("button");
+      btn.innerText = dish.name;
+      btn.onclick = () => {
+        foodInfo.innerHTML = `
+          <h2>${dish.name}</h2>
+          <p>${dish.desc}</p>
+          <img src="${dish.img}" alt="${dish.name}">
+        `;
+      };
+      buttonsContainer.appendChild(btn);
+    });
+  </script>
+
+</body>
+</html>
